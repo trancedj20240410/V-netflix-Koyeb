@@ -4,7 +4,6 @@ WORKDIR /app
 USER root
 
 COPY nginx.conf /etc/nginx/nginx.conf
-\\ COPY config.json ./
 COPY entrypoint.sh ./
 
 RUN apt-get update && apt-get install -y wget unzip iproute2 systemctl && \
