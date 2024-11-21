@@ -1,0 +1,119 @@
+{
+	"log": {
+		"access": "/dev/null",
+		"error": "/dev/null",
+		"loglevel": "warning"
+	},
+	"inbounds": [
+		{
+			"port": 10000,
+			"listen": "127.0.0.1",
+			"protocol": "vmess",
+			"settings": {
+				"clients": [
+					{
+						"id": "UUID",
+						"alterId": 0
+					}
+				]
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "VMESS_WSPATH"
+				}
+			},
+			"sniffing": {
+                          "enabled": true, //一定要开启 sniffing，V2Ray 才能识别 Netflix 的流量
+                          "destOverride": ["http", "tls"]
+                 }
+		},
+		{
+			"port": 20000,
+			"listen": "127.0.0.1",
+			"protocol": "vless",
+			"settings": {
+				"clients": [
+					{
+						"id": "UUID"
+					}
+				],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "VLESS_WSPATH"
+				}
+			},
+			"sniffing": {
+                          "enabled": true, //一定要开启 sniffing，V2Ray 才能识别 Netflix 的流量
+                          "destOverride": ["http", "tls"]
+                 }
+		},
+		{
+			"port": 30000,
+			"listen": "127.0.0.1",
+			"protocol": "trojan",
+			"settings": {
+				"clients": [
+					{
+						"password": "UUID"
+					}
+				],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "TROJAN_WSPATH"
+				}
+			},
+			"sniffing": {
+                          "enabled": true, //一定要开启 sniffing，V2Ray 才能识别 Netflix 的流量
+                          "destOverride": ["http", "tls"]
+                 }
+		},
+		{
+			"port": 40000,
+			"listen": "127.0.0.1",
+			"protocol": "shadowsocks",
+			"settings": {
+				"clients": [
+					{
+						"method": "chacha20-ietf-poly1305",
+						"password": "UUID"
+					}
+				],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "SS_WSPATH"
+				}
+			},
+			"sniffing": {
+                          "enabled": true, //一定要开启 sniffing，V2Ray 才能识别 Netflix 的流量
+                          "destOverride": ["http", "tls"]
+                 }
+		}
+	],
+	"outbounds": [
+		{
+			"protocol": "freedom",
+			"settings": {"domainStrategy": "UseIP"}
+		}
+	],
+	"dns": {
+            "servers": [
+            "8.8.8.8",
+            "8.8.4.4",
+	    {
+        "address": "PROXY_IP",   // DNS 解锁提供的 IP
+        "port": 53,
+        "domains": ["geosite:netflix", "geosite:disney", "geosite:google", "geosite:youtube"]
+      }
+    ]
+  }
+}
