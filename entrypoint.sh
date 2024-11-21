@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # 定义 UUID 及 伪装路径,请自行修改.(注意:伪装路径以 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
+base64 -d config > config.json
 PROXY_IP='5.253.36.99'
 UUID='ae14c875-f1d7-43eb-9506-eef1846d17e1'
 VMESS_WSPATH='/argovmess'
