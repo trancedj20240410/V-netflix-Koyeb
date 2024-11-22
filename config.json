@@ -24,7 +24,7 @@
 				}
 			},
 			"sniffing": {
-                          "enabled": true, //一定要开启 sniffing，V2Ray 才能识别 Netflix 的流量
+                          "enabled": true,
                           "destOverride": ["http", "tls"]
                  }
 		},
@@ -47,7 +47,7 @@
 				}
 			},
 			"sniffing": {
-                          "enabled": true, //一定要开启 sniffing，V2Ray 才能识别 Netflix 的流量
+                          "enabled": true,
                           "destOverride": ["http", "tls"]
                  }
 		},
@@ -70,7 +70,7 @@
 				}
 			},
 			"sniffing": {
-                          "enabled": true, //一定要开启 sniffing，V2Ray 才能识别 Netflix 的流量
+                          "enabled": true,
                           "destOverride": ["http", "tls"]
                  }
 		},
@@ -94,7 +94,7 @@
 				}
 			},
 			"sniffing": {
-                          "enabled": true, //一定要开启 sniffing，V2Ray 才能识别 Netflix 的流量
+                          "enabled": true,
                           "destOverride": ["http", "tls"]
                  }
 		}
@@ -110,7 +110,7 @@
             "8.8.8.8",
             "8.8.4.4",
 	    {
-        "address": "PROXY_IP",   // DNS 解锁提供的 IP
+        "address": "PROXY_IP",
         "port": 53,
         "domains": ["geosite:netflix", "geosite:disney", "geosite:google", "geosite:youtube"]
       }
