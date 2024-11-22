@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
 # 定义 UUID 及 伪装路径,请自行修改.(注意:伪装路径以 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
-PROXY_IP='5.253.36.99'
-UUID='ae14c875-f1d7-43eb-9506-eef1846d17e1'
-VMESS_WSPATH='/argovmess'
-VLESS_WSPATH='/argovless'
-TROJAN_WSPATH='/argotrojan'
-SS_WSPATH='/argoshadowsocks'
-NEZHA_SERVER='nezhadata.hkpass.top'
-NEZHA_PORT='443'
-NEZHA_KEY='i6l9u6g39G3D6LXdqW'
+UUID=${UUID:-'de04add9-5c68-8bab-950c-08cd5320df18'}
+VMESS_WSPATH=${VMESS_WSPATH:-'/vmess'}
+VLESS_WSPATH=${VLESS_WSPATH:-'/vless'}
+PROXY_IP=${PROXY_IP:-'185.217.5.30'}
+TROJAN_WSPATH=${TROJAN_WSPATH:-'/trojan'}
+SS_WSPATH=${SS_WSPATH:-'/argoshadowsocks'}
+
 sed -i "s#PROXY_IP#$PROXY_IP#g;s#UUID#$UUID#g;s#VMESS_WSPATH#${VMESS_WSPATH}#g;s#VLESS_WSPATH#${VLESS_WSPATH}#g;s#TROJAN_WSPATH#${TROJAN_WSPATH}#g;s#SS_WSPATH#${SS_WSPATH}#g" config.json
 sed -i "s#VMESS_WSPATH#${VMESS_WSPATH}#g;s#VLESS_WSPATH#${VLESS_WSPATH}#g;s#TROJAN_WSPATH#${TROJAN_WSPATH}#g;s#SS_WSPATH#${SS_WSPATH}#g" /etc/nginx/nginx.conf
 sed -i "s#RELEASE_RANDOMNESS#${RELEASE_RANDOMNESS}#g" /etc/supervisor/conf.d/supervisord.conf
